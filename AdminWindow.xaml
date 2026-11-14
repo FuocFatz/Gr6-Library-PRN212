@@ -1,0 +1,33 @@
+<Window x:Class="PRN212.LibraryManagement.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:PRN212.LibraryManagement.Controls"
+        Title="PRN212 - Admin" Height="760" Width="1180" MinHeight="650" MinWidth="950"
+        WindowStartupLocation="CenterScreen" Background="{StaticResource PageBrush}">
+    <Grid Margin="22">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border Background="{StaticResource PrimaryBrush}" CornerRadius="12" Padding="18" Margin="0,0,0,14">
+            <DockPanel>
+                <StackPanel>
+                    <TextBlock Text="ADMIN DASHBOARD" Foreground="#BFDBFE" FontSize="12" FontWeight="Bold" />
+                    <TextBlock x:Name="TxtWelcome" Text="Xin chào, Admin" Foreground="White"
+                               FontSize="23" FontWeight="SemiBold" Margin="0,4,0,0" />
+                </StackPanel>
+                <Button DockPanel.Dock="Right" Content="Đăng xuất" Background="#DC2626"
+                        VerticalAlignment="Center" Click="Logout_Click" />
+            </DockPanel>
+        </Border>
+
+        <TabControl Grid.Row="1" Background="White">
+            <TabItem Header="Quản lý sách">
+                <controls:BookManagementControl />
+            </TabItem>
+            <TabItem Header="Quản lý tài khoản">
+                <ContentControl x:Name="UsersHost" />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

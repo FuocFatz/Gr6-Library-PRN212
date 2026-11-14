@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="650" viewBox="0 0 1120 650">
+  <defs>
+    <style>
+      .title{font:700 28px 'Segoe UI',Arial,sans-serif;fill:#17324d}
+      .subtitle{font:14px 'Segoe UI',Arial,sans-serif;fill:#64748b}
+      .head{font:700 18px 'Segoe UI',Arial,sans-serif;fill:#fff}
+      .field{font:14px 'Consolas',monospace;fill:#1e293b}
+      .note{font:13px 'Segoe UI',Arial,sans-serif;fill:#475569}
+      .box{fill:#fff;stroke:#94a3b8;stroke-width:2;rx:12}
+      .bar{fill:#1e3a5f;rx:10}
+      .line{stroke:#2878b5;stroke-width:3;fill:none}
+      .label{font:700 13px 'Segoe UI',Arial,sans-serif;fill:#2878b5}
+    </style>
+  </defs>
+  <rect width="1120" height="650" fill="#f3f6fb"/>
+  <text x="40" y="48" class="title">PRN212 – Library Management System</text>
+  <text x="40" y="75" class="subtitle">Sơ đồ quan hệ cơ sở dữ liệu – Phiên bản 4 bảng</text>
+
+  <!-- Users -->
+  <rect x="50" y="145" width="290" height="260" class="box"/>
+  <rect x="50" y="145" width="290" height="48" class="bar"/>
+  <text x="70" y="176" class="head">Users</text>
+  <text x="72" y="222" class="field">PK  UserId</text>
+  <text x="72" y="250" class="field">    Username</text>
+  <text x="72" y="278" class="field">    PasswordHash</text>
+  <text x="72" y="306" class="field">    FullName</text>
+  <text x="72" y="334" class="field">    Email</text>
+  <text x="72" y="362" class="field">    Role</text>
+
+  <!-- Books -->
+  <rect x="780" y="145" width="290" height="285" class="box"/>
+  <rect x="780" y="145" width="290" height="48" class="bar"/>
+  <text x="800" y="176" class="head">Books</text>
+  <text x="802" y="222" class="field">PK  BookId</text>
+  <text x="802" y="250" class="field">    BookTitle</text>
+  <text x="802" y="278" class="field">    BookCategory</text>
+  <text x="802" y="306" class="field">    TotalQuantity</text>
+  <text x="802" y="334" class="field">    AvailableQuantity</text>
+
+  <!-- BorrowRecords -->
+  <rect x="415" y="145" width="330" height="340" class="box"/>
+  <rect x="415" y="145" width="330" height="48" class="bar"/>
+  <text x="435" y="176" class="head">BorrowRecords</text>
+  <text x="437" y="222" class="field">PK  BorrowId</text>
+  <text x="437" y="250" class="field">FK  UserId</text>
+  <text x="437" y="278" class="field">FK  BookId</text>
+  <text x="437" y="306" class="field">    BorrowDate</text>
+  <text x="437" y="334" class="field">    DueDate</text>
+  <text x="437" y="362" class="field">    ReturnDate</text>
+  <text x="437" y="390" class="field">    Status</text>
+
+  <!-- Payments -->
+  <rect x="415" y="535" width="330" height="95" class="box"/>
+  <rect x="415" y="535" width="330" height="42" class="bar"/>
+  <text x="435" y="563" class="head">Payments</text>
+  <text x="435" y="601" class="field">PK PaymentId   |   FK BorrowId   |   Amount   |   PaymentWay</text>
+
+  <!-- Relations -->
+  <path d="M340 275 H415" class="line"/>
+  <text x="353" y="260" class="label">1 : N</text>
+  <path d="M780 285 H745" class="line"/>
+  <text x="747" y="270" class="label">1 : N</text>
+  <path d="M580 485 V535" class="line"/>
+  <text x="592" y="516" class="label">1 : 0..1</text>
+
+  <text x="50" y="460" class="note">Một tài khoản có thể có nhiều lượt mượn.</text>
+  <text x="780" y="470" class="note">Một đầu sách có thể xuất hiện trong nhiều lượt mượn.</text>
+  <text x="780" y="493" class="note">Mỗi lượt mượn có thể chưa thanh toán hoặc có một giao dịch.</text>
+  <text x="50" y="585" class="note">Quy ước: mỗi dòng BorrowRecords tương ứng một cuốn sách được mượn.</text>
+</svg>

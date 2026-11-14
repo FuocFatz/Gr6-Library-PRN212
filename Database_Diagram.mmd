@@ -1,0 +1,37 @@
+erDiagram
+    Users ||--o{ BorrowRecords : "mượn"
+    Books ||--o{ BorrowRecords : "được mượn"
+    BorrowRecords ||--o| Payments : "có thanh toán"
+
+    Users {
+        int UserId PK
+        string Username
+        string PasswordHash
+        string FullName
+        string Email
+        string Role
+    }
+    Books {
+        int BookId PK
+        string BookTitle
+        string BookCategory
+        int TotalQuantity
+        int AvailableQuantity
+    }
+    BorrowRecords {
+        int BorrowId PK
+        int UserId FK
+        int BookId FK
+        date BorrowDate
+        date DueDate
+        date ReturnDate
+        string Status
+    }
+    Payments {
+        int PaymentId PK
+        int BorrowId FK
+        decimal Amount
+        string PaymentWay
+        datetime PaymentDate
+        string PaymentStatus
+    }
